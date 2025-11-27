@@ -1,0 +1,14 @@
+C:\Users\sofia\Documents\Desafiotecnico\src\DesafioTecnico.App\bin\Debug\net10.0\DesafioTecnico.App.exe
+C:\Users\sofia\Documents\Desafiotecnico\src\DesafioTecnico.App\bin\Debug\net10.0\DesafioTecnico.App.deps.json
+C:\Users\sofia\Documents\Desafiotecnico\src\DesafioTecnico.App\bin\Debug\net10.0\DesafioTecnico.App.runtimeconfig.json
+C:\Users\sofia\Documents\Desafiotecnico\src\DesafioTecnico.App\bin\Debug\net10.0\DesafioTecnico.App.dll
+C:\Users\sofia\Documents\Desafiotecnico\src\DesafioTecnico.App\bin\Debug\net10.0\DesafioTecnico.App.pdb
+C:\Users\sofia\Documents\Desafiotecnico\src\DesafioTecnico.App\obj\Debug\net10.0\DesafioTecnico.App.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sofia\Documents\Desafiotecnico\src\DesafioTecnico.App\obj\Debug\net10.0\DesafioTecnico.App.AssemblyInfoInputs.cache
+C:\Users\sofia\Documents\Desafiotecnico\src\DesafioTecnico.App\obj\Debug\net10.0\DesafioTecnico.App.AssemblyInfo.cs
+C:\Users\sofia\Documents\Desafiotecnico\src\DesafioTecnico.App\obj\Debug\net10.0\DesafioTecnico.App.csproj.CoreCompileInputs.cache
+C:\Users\sofia\Documents\Desafiotecnico\src\DesafioTecnico.App\obj\Debug\net10.0\DesafioTecnico.App.dll
+C:\Users\sofia\Documents\Desafiotecnico\src\DesafioTecnico.App\obj\Debug\net10.0\refint\DesafioTecnico.App.dll
+C:\Users\sofia\Documents\Desafiotecnico\src\DesafioTecnico.App\obj\Debug\net10.0\DesafioTecnico.App.pdb
+C:\Users\sofia\Documents\Desafiotecnico\src\DesafioTecnico.App\obj\Debug\net10.0\DesafioTecnico.App.genruntimeconfig.cache
+C:\Users\sofia\Documents\Desafiotecnico\src\DesafioTecnico.App\obj\Debug\net10.0\ref\DesafioTecnico.App.dll
