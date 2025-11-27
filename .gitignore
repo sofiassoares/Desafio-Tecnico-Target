@@ -1,0 +1,27 @@
+# Build
+bin/
+obj/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+.vs/
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+TestResult*/
+TestResults/
+*.nupkg
+packages/
+.nuget/
+*.tmp
+*.temp
+*.cache
