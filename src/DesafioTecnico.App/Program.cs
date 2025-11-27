@@ -1,2 +1,18 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using DesafioTecnico.App.Core;
+using DesafioTecnico.App.Repositories;
+using DesafioTecnico.App.Services;
+
+string caminhoVendas = @"C:\Users\sofia\Documents\Desafiotecnico\src\DesafioTecnico.App\Data\vendas.json";
+string caminhoEstoque = @"C:\Users\sofia\Documents\Desafiotecnico\src\DesafioTecnico.App\Data\estoque.json";
+
+
+var vendasRepo = new VendasRepository(caminhoVendas);
+var estoqueRepo = new EstoqueRepository(caminhoEstoque);
+
+var comissaoService = new ComissaoService();
+var estoqueService = new EstoqueService(estoqueRepo.ObterProdutos());
+var jurosService = new JurosService();
+
+var menu = new Menu(vendasRepo, estoqueRepo, comissaoService, estoqueService, jurosService);
+
+menu.Exibir();
