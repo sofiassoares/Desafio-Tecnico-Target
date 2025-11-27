@@ -56,7 +56,7 @@ namespace DesafioTecnico.App.Core
 
                 if (opcao != 0)
                 {
-                    Console.WriteLine("\nPressione ENTER para continuar...");
+                    Console.WriteLine("\nPressiona enter para a gente continuar");
                     Console.ReadLine();
                 }
             }
@@ -103,13 +103,19 @@ namespace DesafioTecnico.App.Core
         }
         private void CalcularJuros()
         {
-            Console.WriteLine("Calculo de juros");
+            Console.WriteLine("Cálculo de Juros");
             Console.Write("Valor original: ");
             decimal valor = decimal.Parse(Console.ReadLine() ?? "0");
 
-            Console.Write("Data de vencimento (yyyy-MM-dd): ");
-            DateTime data = DateTime.Parse(Console.ReadLine() ?? "");
+            Console.Write("Data de vencimento (dd/MM/yyyy): ");
+            string? inputData = Console.ReadLine();
 
+            DateTime data;
+            if (!DateTime.TryParseExact(inputData, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out data))
+            {
+                Console.WriteLine("\nData inválida! Use o formato dd/MM/yyyy.");
+                return;
+            }
             decimal juros = _jurosService.Calcular(valor, data);
 
             Console.WriteLine($"\nJuros acumulado: R$ {juros:F2}");
