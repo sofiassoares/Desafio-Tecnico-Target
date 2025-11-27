@@ -14,7 +14,7 @@ namespace DesafioTecnico.App.Repositories
 
             _vendas = obj?["vendas"] ?? new List<Venda>();
         }
-        public IReadOnlyList<Venda> ObterVendas()
+        public List<Venda> ObterVendas()
         {
             return _vendas;
         }

@@ -17,7 +17,7 @@ namespace DesafioTecnico.App.Repositories
 
             _produtos = obj?["estoque"] ?? new List<Produto>();
         }
-        public IReadOnlyList<Produto> ObterProdutos()
+        public List<Produto> ObterProdutos()
         {
             return _produtos;
         }
