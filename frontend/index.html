@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard de Estoque</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <header>
+        <h1>Dashboard de Estoque</h1>
+        <p>Visualização simples do estoque carregado via JSON</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Resumo</h2>
+            <p id="totalItens">Carregando...</p>
+        </section>
+
+        <section class="card">
+            <h2>Produtos em Estoque</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Descrição</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaEstoque">
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
