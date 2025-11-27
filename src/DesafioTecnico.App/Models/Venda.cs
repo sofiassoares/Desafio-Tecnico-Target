@@ -1,5 +1,8 @@
-public class Venda
+namespace DesafioTecnico.App.Models
 {
-    public string Vendedor { get; set; }
-    public decimal Valor { get; set; }
+    public class Venda
+    {
+        public string Vendedor { get; set; }
+        public decimal Valor { get; set; }
+    }
 }
