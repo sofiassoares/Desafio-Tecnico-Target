@@ -16,10 +16,13 @@ function mostrarAba(id) {
     if (selecionada) {
         selecionada.classList.add("ativa");
     }
-    const btn = Array.from(botoes).find(b => b.textContent.toLowerCase().includes(id));
-    if (btn) {
-        btn.classList.add("ativo");
-    }
+
+    botoes.forEach(btn => {
+        const acao = btn.getAttribute("onclick") || "";
+        if (acao.includes(`'${id}'`)) {
+            btn.classList.add("ativo");
+        }
+    });
 }
 
 function carregarEstoque() {
@@ -39,6 +42,10 @@ function carregarEstoque() {
                 soma += p.estoque;
 
                 const tr = document.createElement("tr");
+                if (p.estoque <= 50) {
+                    tr.classList.add("low-stock");
+                }
+
                 tr.innerHTML = `
                     <td>${p.codigoProduto}</td>
                     <td>${p.descricaoProduto}</td>
@@ -50,8 +57,9 @@ function carregarEstoque() {
             totalItens.textContent = `Total de itens no estoque: ${soma}`;
         })
         .catch(err => {
-            console.error("Erro ao carregar estoque:", err);
-            document.getElementById("totalItens").textContent = "Erro ao carregar dados da API.";
+            console.error("Deu algo de errado no estoque :( :", err);
+            document.getElementById("totalItens").textContent =
+                "Algo deu erro, melhor ver se a API está rodando!";
         });
 }
 
@@ -77,7 +85,8 @@ function carregarVendas() {
         .catch(err => {
             console.error("Erro ao carregar vendas:", err);
             const tbody = document.getElementById("tabelaVendas");
-            tbody.innerHTML = `<tr><td colspan="2">Erro ao carregar vendas.</td></tr>`;
+            tbody.innerHTML =
+                `<tr><td colspan="2">Cade a tabela de vendas?.</td></tr>`;
         });
 }
 
@@ -103,7 +112,8 @@ function carregarComissoes() {
         .catch(err => {
             console.error("Erro ao carregar comissões:", err);
             const tbody = document.getElementById("tabelaComissoes");
-            tbody.innerHTML = `<tr><td colspan="2">Erro ao carregar comissões.</td></tr>`;
+            tbody.innerHTML =
+                `<tr><td colspan="2">Não consegui calcular as comissões agora.</td></tr>`;
         });
 }
 
@@ -113,13 +123,13 @@ function movimentarEstoque() {
     const resultado = document.getElementById("resultadoMov");
 
     if (!codigo || !quantidade) {
-        resultado.textContent = "Informe código e quantidade.";
+        resultado.textContent = "Preencha o código e a quantidade.";
         return;
     }
 
     const body = {
         codigoProduto: codigo,
-        descricao: "movimentação via frontend",
+        descricao: "Movimentação realizada pelo painel uhuul",
         quantidade: quantidade
     };
 
@@ -136,26 +146,30 @@ function movimentarEstoque() {
                 resultado.textContent = res.mensagem;
                 return;
             }
-            resultado.textContent = `Movimentação realizada. Estoque final: ${res.estoqueFinal}`;
+
+            resultado.textContent = `Movimentação registrada uhuul. Estoque final: ${res.estoqueFinal}`;
             carregarEstoque();
         })
         .catch(err => {
-            console.error("Erro ao movimentar estoque:", err);
-            resultado.textContent = "Erro ao movimentar estoque.";
+            console.error("Erro ao movimentar estoque (ah não):", err);
+            resultado.textContent = "Não consegui registrar essa movimentação agora.";
         });
 }
 
 function calcularJuros() {
     const valor = parseFloat(document.getElementById("jurosValor").value || "0");
-    const data = document.getElementById("jurosData").value;
+    const rawDate = document.getElementById("jurosData").value;
     const resultado = document.getElementById("resultadoJuros");
 
-    if (!valor || !data) {
-        resultado.textContent = "Informe o valor e a data.";
+    if (!valor || !rawDate) {
+        resultado.textContent = "Informe o valor e selecione a data de vencimento para calcular.";
         return;
     }
 
-    const url = `${API_BASE}/api/juros?valor=${encodeURIComponent(valor)}&data=${encodeURIComponent(data)}`;
+    const [ano, mes, dia] = rawDate.split("-");
+    const dataFormatada = `${dia}-${mes}-${ano}`;
+
+    const url = `${API_BASE}/api/juros?valor=${encodeURIComponent(valor)}&data=${encodeURIComponent(dataFormatada)}`;
 
     fetch(url)
         .then(r => r.json())
@@ -167,22 +181,22 @@ function calcularJuros() {
 
             resultado.textContent =
                 `Vencimento: ${res.dataVencimento} | ` +
-                `Juros: R$ ${res.juros.toFixed(2)} | ` +
-                `Total: R$ ${res.valorTotal.toFixed(2)}`;
+                `Juros acumulado: R$ ${res.juros.toFixed(2)} | ` +
+                `Total com juros: R$ ${res.valorTotal.toFixed(2)}`;
         })
         .catch(err => {
             console.error("Erro ao calcular juros:", err);
-            resultado.textContent = "Erro ao calcular juros.";
+            resultado.textContent = "Não consegui calcular os juros agora. Tente novamente em alguns instantes.";
         });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     mostrarAba("estoque");
-
     carregarEstoque();
     carregarVendas();
     carregarComissoes();
 });
+
 window.mostrarAba = mostrarAba;
 window.movimentarEstoque = movimentarEstoque;
 window.calcularJuros = calcularJuros;
