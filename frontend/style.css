@@ -130,19 +130,19 @@ body {
     border-color: transparent;
 }
 
-.tabs .tabButton:nth-child(1).ativo { /* estoque */
+.tabs .tabButton:nth-child(1).ativo {
     background: #f2662f;
 }
 
-.tabs .tabButton:nth-child(2).ativo { /* vendas */
+.tabs .tabButton:nth-child(2).ativo {
     background: #2076d4;
 }
 
-.tabs .tabButton:nth-child(3).ativo { /* comissões */
+.tabs .tabButton:nth-child(3).ativo {
     background: #2f8d5a;
 }
 
-.tabs .tabButton:nth-child(4).ativo { /* juros */
+.tabs .tabButton:nth-child(4).ativo {
     background: #d947b8;
 }
 
@@ -195,7 +195,7 @@ main {
     grid-column: 1 / -1;
 }
 
-/* centralizar vendas / comissões / juros */
+/* tem qeu centralizar as vendas juros e comissão */
 
 #vendas .cards-grid,
 #comissoes .cards-grid,
