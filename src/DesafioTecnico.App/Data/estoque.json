@@ -7,8 +7,8 @@
     },
     {
       "codigoProduto": 102,
-      "descricaoProduto": "Caderno Universitário",
-      "estoque": 75
+      "descricaoProduto": "Caderno Universitario",
+      "estoque": 48
     },
     {
       "codigoProduto": 103,
@@ -17,13 +17,13 @@
     },
     {
       "codigoProduto": 104,
-      "descricaoProduto": "Lápis Preto HB",
+      "descricaoProduto": "Lapis Preto HB",
       "estoque": 320
     },
     {
       "codigoProduto": 105,
       "descricaoProduto": "Marcador de Texto Amarelo",
-      "estoque": 90
+      "estoque": 130
     }
   ]
 }
